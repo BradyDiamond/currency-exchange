@@ -11,3 +11,30 @@
 
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Righteous&display=swap"
+      rel="stylesheet"
+    />
+    <title>Currency Exchange</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Your Currency</h1>
+      <form id="cash">
+        <label for="">Enter your currency amount</label>
+        <input type="number" id="number-input" placeholder="put it here" required />
+        <button type="submit" class="btn btn-info">Exchange</button>
+      </form>
+      <p id="error-message" class="error"></p>
+      <h1 id="response" class="hidden">Current Rates</h1>
+    </div>
+  </body>
+</html>
