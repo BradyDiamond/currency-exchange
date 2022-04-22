@@ -15,9 +15,10 @@ function errorFunction(response) {
     return false;
   }
 }
-function getConvertedCurrency() {
-  const url = `https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/latest/USD`;
-  const response = ApiCall.GetCurrency(url);
+async function getConvertedCurrency() {
+  let number = $('#number-input').val();
+  const url = `https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/pair/USD/GBP/${number}`;
+  const response = await ApiCall.getCurrency(url);
   console.log(response);
   const isErrorPresent = errorFunction($("error-message"), response);
   if (!isErrorPresent) {
@@ -32,3 +33,17 @@ $(document).ready(function () {
     });
   });
   
+
+
+
+
+
+  // async function getConvertedCurrency() {
+  //   const url = `https://v6.exchangerate-api.com/v6/YOUR-API-KEY/pair/USD/GBP/${number-input}`;
+  //   const response = await ApiCall.getCurrency(url);
+  //   console.log(response);
+  //   const isErrorPresent = errorFunction($("error-message"), response);
+  //   if (!isErrorPresent) {
+  //     $('#response').text("");
+  //     }
+  //   }

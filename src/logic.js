@@ -1,5 +1,5 @@
 export class ApiCall {
-  static getCurrency() {
+  static getCurrency(url) {
     return fetch(url)
       .then(function (response) {
         if (!response.ok) {
