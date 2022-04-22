@@ -17,7 +17,7 @@ function errorFunction(response) {
 }
 async function getCurrency() {
   $("#response").removeClass("hidden");
-  const url = `https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/latest/USD`;
+  const url = `https://v6.exchangerate-api.com/v6/754dd9bc6e3b9ddd9e0c6b5f/latest/USD`;
   const response = await ApiCall.getCurrency(url);
   console.log(response);
   const isErrorPresent = errorFunction($(""), response);
