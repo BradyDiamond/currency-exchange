@@ -26,10 +26,11 @@
 * _get api key from https://www.exchangerate-api.com/_
 * _place api key in project using instructions listed here: https://www.learnhowtoprogram.com/intermediate-javascript/asynchrony-and-apis/managing-api-keys _
 * _run 'npm run start' in the terminal to view the aplication_
+* _input your USD amount to see the conversion result_
 
 ## Known Bugs
 
-* _currently not functional_
+* _return data currently not parsed to fixed cents_
 
 ## License
 _licensed under the [MIT License] (LICENSE)_

@@ -2,7 +2,7 @@ import $ from "jquery";
 import "bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./css/styles.css";
-import { ApiCall } from "./logic.js";
+import { ApiCall } from "./apiLogic.js";
 
 function errorFunction(response) {
   if (response instanceof Error) {
@@ -28,12 +28,11 @@ async function getConvertedCurrency() {
   } else if (operator === "aus") {
     url = `https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/pair/USD/AUD/${number}`;
   } else {url = `https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/pair/USD/CAD/${number}`;
-}
+  }
   const response = await ApiCall.getCurrency(url);
-  // console.log(response);
   const isErrorPresent = errorFunction($("error-message"), response);
   if (!isErrorPresent) {
-    $('#response').text("Your US Dollars exchange at a rate of " + response.conversion_rate + " to give you " + response.conversion_result + " " + response.target_code );
+    $('#response').text("Your US Dollars exchange at a rate of " + response.conversion_rate + " to give you " + response.conversion_result.toFixed(2) + " " + response.target_code );
   }
 }
 
