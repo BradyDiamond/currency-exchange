@@ -4,7 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./css/styles.css";
 import { ApiCall } from "./logic.js";
 
-function errorFunction(element, response) {
+function errorFunction(response) {
   if (response instanceof Error) {
     $(element).text("");
     $(element).append(
@@ -15,20 +15,21 @@ function errorFunction(element, response) {
     return false;
   }
 }
-async function getCurrency(element) {
-  const url = `https://v6.exchangerate-api.com/v6/${API_KEY}/latest/USD`;
+async function getCurrency(cash) {
+  const url = `https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/latest/USD`;
   const response = await ApiCall.get(url);
-  const isErrorPresent = errorFunction($("#cash"), response);
+  console.log(response);
+  const isErrorPresent = errorFunction($("#image-of-day"), response);
   $("#response").removeClass("hidden");
   if (!isErrorPresent) {
-    const rates = response.url;
+    const moneyUrl = response.url;
     }
   }
 $(document).ready(function () {
   $("#cash").submit(async function (event) {
     event.preventDefault();
     const money = $("#number-input").val();
-    getCurrency(element);
+    getCurrency(response);
   });
 });
 

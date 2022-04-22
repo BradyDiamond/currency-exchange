@@ -21,7 +21,6 @@ export class ApiCall {
           return response.json();
         })
         .catch(function (error) {
-          console.log(error);
           return error;
         });
     }
