@@ -1,31 +1,38 @@
-# (Application Name)
+# (currency exchanger)
 
-#### (Brief Description of Application)
+#### (see exchange rate of USD to other currency)
 
-#### By (Your Name Here)
+#### By (Brady Diamond)
 
 ## Technologies Used
 
-* _List all_
-* _the major technologies_
-* _you used in your project_
-* _here_
+* _HTML_
+* _JavaScript_
+* _CSS_
+* _Jquery_
+* _webpack_
+* _npm_
 
 ## Description
 
+* _This application will exchange USD into five different currencies_
+
 ## Setup/Installation Requirements
 
-* _This is a great place_
-* _to list setup instructions_
-* _in a simple_
-* _easy-to-understand_
-* _format_
+* _clone github repository_
+* _navigate to project directory_
+* _run 'npm install' in terminal_
+* _run 'npm run build' in the terminal_
+* _get api key from https://www.exchangerate-api.com/_
+* _place api key in project using instructions listed here: https://www.learnhowtoprogram.com/intermediate-javascript/asynchrony-and-apis/managing-api-keys _
+* _run 'npm run start' in the terminal to view the aplication_
 
 ## Known Bugs
 
-* _Any known issues_
-* _should go here_
+* _currently not functional_
 
 ## License
+_licensed under the [MIT License] (LICENSE)_
 
+_Copyright (c) _2022_ _Brady Diamond_ 
 ## Contact Information

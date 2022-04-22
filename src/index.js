@@ -18,6 +18,7 @@ function errorFunction(response) {
 function getConvertedCurrency() {
   const url = `https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/latest/USD`;
   const response = ApiCall.GetCurrency(url);
+  console.log(response);
   const isErrorPresent = errorFunction($("error-message"), response);
   if (!isErrorPresent) {
     $('#response').text("");
@@ -27,12 +28,7 @@ $(document).ready(function () {
   $("#cash").submit(async function (event) {
     event.preventDefault();
     $("#response").removeClass("hidden");
-    // let money = $("#number-input").val();
-    // let promise = ApiCall.getCurrency(url);
-    // promise.then(function(response) {
-    //   const body = JSON.parse(response);
-    //   ('#response').text(`your $ ${money} is worth ${body.main.CAD}%`);
     getConvertedCurrency();
     });
   });
-// });
+
