@@ -17,7 +17,18 @@ function errorFunction(response) {
 }
 async function getConvertedCurrency() {
   let number = $('#number-input').val();
-  const url = `https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/pair/USD/GBP/${number}`;
+  const operator = $("input:radio[name=operator]:checked").val();
+  let url;
+  if (operator === "pnd") {
+    url = `https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/pair/USD/GBP/${number}`;
+  } else if (operator === "euro") {
+    url = `https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/pair/USD/EUR/${number}`;
+  } else if (operator === "yen") {
+    url = `https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/pair/USD/JPY/${number}`;
+  } else if (operator === "aus") {
+    url = `https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/pair/USD/AUD/${number}`;
+  } else {url = `https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/pair/USD/CAD/${number}`;
+}
   const response = await ApiCall.getCurrency(url);
   console.log(response);
   const isErrorPresent = errorFunction($("error-message"), response);
