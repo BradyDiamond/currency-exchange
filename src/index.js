@@ -15,8 +15,8 @@ function errorFunction(element, response) {
     return false;
   }
 }
-async function getCurrency(newDate) {
-  const url = `https://api.nasa.gov/planetary/apod?date=${newDate}&api_key=${process.env.API_KEY}`;
+async function getCurrency(element) {
+  const url = `https://v6.exchangerate-api.com/v6/${API_KEY}/latest/USD`;
   const response = await ApiCall.get(url);
   const isErrorPresent = errorFunction($("#image-of-day"), response);
   $("#response").removeClass("hidden");
@@ -38,9 +38,6 @@ $(document).ready(function () {
   $("#birthday").submit(async function (event) {
     event.preventDefault();
     const date = $("#date-input").val();
-    let today = new Date();
-    var dd = String(today.getDate()).padStart(2, "0");
-    var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
     var yyyy = today.getFullYear();
     today = yyyy + "-" + mm + "-" + dd;
     if (date > today) {
