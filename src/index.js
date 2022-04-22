@@ -29,7 +29,11 @@ $(document).ready(function () {
   $("#cash").submit(async function (event) {
     event.preventDefault();
     let money = $("#number-input").val();
-    // const body = JSON.parse(response);
-    getCurrency(money);
+    let promise = ApiCall.getCurrency(url);
+    promise.then(function(response) {
+      const body = JSON.parse(response);
+      ('#response').text(`your $ ${money} is worth ${body.main.CAD}%`);
+    getCurrency();
+    });
   });
 });
