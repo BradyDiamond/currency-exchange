@@ -30,31 +30,19 @@ async function getConvertedCurrency() {
   } else {url = `https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/pair/USD/CAD/${number}`;
 }
   const response = await ApiCall.getCurrency(url);
-  console.log(response);
+  // console.log(response);
   const isErrorPresent = errorFunction($("error-message"), response);
   if (!isErrorPresent) {
-    $('#response').text("");
-    }
+    $('#response').text("Your US Dollars exchange at a rate of " + response.conversion_rate + " to give you " + response.conversion_result + " " + response.target_code );
   }
+}
+
 $(document).ready(function () {
   $("#cash").submit(async function (event) {
     event.preventDefault();
+    let number = $('#number-input').val();
     $("#response").removeClass("hidden");
-    getConvertedCurrency();
+    getConvertedCurrency(number);
     });
   });
-  
 
-
-
-
-
-  // async function getConvertedCurrency() {
-  //   const url = `https://v6.exchangerate-api.com/v6/YOUR-API-KEY/pair/USD/GBP/${number-input}`;
-  //   const response = await ApiCall.getCurrency(url);
-  //   console.log(response);
-  //   const isErrorPresent = errorFunction($("error-message"), response);
-  //   if (!isErrorPresent) {
-  //     $('#response').text("");
-  //     }
-  //   }
