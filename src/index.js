@@ -15,37 +15,21 @@ function errorFunction(response) {
     return false;
   }
 }
-async function getCurrency(cash) {
-  const url = `https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/latest/USD`;
-  const response = await ApiCall.get(url);
-  console.log(response);
-  const isErrorPresent = errorFunction($("#image-of-day"), response);
+async function getCurrency() {
   $("#response").removeClass("hidden");
+  const url = `https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/latest/USD`;
+  const response = await ApiCall.getCurrency(url);
+  console.log(response);
+  const isErrorPresent = errorFunction($(""), response);
   if (!isErrorPresent) {
-    const moneyUrl = response.url;
+    $('#response').text("");
     }
   }
 $(document).ready(function () {
   $("#cash").submit(async function (event) {
     event.preventDefault();
-    const money = $("#number-input").val();
-    getCurrency(response);
+    let money = $("#number-input").val();
+    // const body = JSON.parse(response);
+    getCurrency(money);
   });
 });
-
-
-// $(document).ready(function() {
-//   $('#weatherLocation').click(function() {
-//     let city = $('#location').val();
-//     clearFields();
-//     let promise = WeatherService.getWeather(city);
-//     promise.then(function(response) {
-//       const body = JSON.parse(response);
-//       let farTemp = ((response.main.temp - 273.15) * 9/5 + 32).toFixed(2);
-//       $('.showHumidity').text(`The humidity in ${city} is ${body.main.humidity}%`);
-//       $('.showTemp').text(`The temperature in fahrenheit is ${farTemp} degrees.`);
-//     }, function(error) {
-//       $('.showErrors').text(`There was an error processing your request: ${error}`);
-//     });
-//   });
-// });

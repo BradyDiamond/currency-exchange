@@ -1,28 +1,14 @@
 export class ApiCall {
-  static get(url, options) {
-    if (options === undefined) {
-      return fetch(url)
-        .then(function (response) {
-          if (!response.ok) {
-            throw Error(response.statusText);
-          }
-          return response.json();
-        })
-        .catch(function (error) {
-          console.log(error);
-          return error;
-        });
-    } else {
-      return fetch(url, options)
-        .then(function (response) {
-          if (!response.ok) {
-            throw Error(response.statusText);
-          }
-          return response.json();
-        })
-        .catch(function (error) {
-          return error;
-        });
-    }
+  static getCurrency() {
+    return fetch(`https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/latest/USD`)
+      .then(function (response) {
+        if (!response.ok) {
+          throw Error(response.statusText);
+        }
+        return response.json();
+      })
+      .catch(function (error) {
+        return error;
+      });
   }
 }
