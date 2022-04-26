@@ -3,7 +3,7 @@ export class ApiCall {
     return fetch(url)
       .then(function (response) {
         if (!response.ok) {
-          throw Error(response.statusText);
+          throw Error(response.error-type);
         }
         return response.json();
       })
